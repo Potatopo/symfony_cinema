@@ -67,6 +67,9 @@ class Torrent
     #[ORM\Column(type: 'text', nullable: true)]
     private $extra_info;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
     public function __construct($name, $filename, $description, $keywords, $player, $trailer, $poster, $video_avc, $video_hevc,
     $video_dash, $video_hls, $features, $captions, $pg, $support, $extra_info)
     {
@@ -307,6 +310,18 @@ class Torrent
     public function setExtraInfo(?string $extra_info): self
     {
         $this->extra_info = $extra_info;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
