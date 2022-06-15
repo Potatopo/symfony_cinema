@@ -36,7 +36,6 @@ class TorrentController extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var Article $article */
             $torrent = $form->getData();
             $torrentRepository->update($torrent, true);
             $this->addFlash('success', 'Torrent Updated!');

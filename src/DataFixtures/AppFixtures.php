@@ -25,7 +25,21 @@ class AppFixtures extends Fixture
         <p><span style="text-align: center;"><b style="color:teal">«Ты не можешь убежать от своего наследия»</b></span></p>
         
         <p><b style="color:#9A9170">Продолжительность:</b> 01:40:57</p>',
-        "Ray Donovan: The Movie, 2022, США, драма, Дэвид Холландер, Лив Шрайбер, Кэррис Дорси, Джон Войт, Керри Кондон, Эдди Марсан, Алан Алда, Дэш Майок, Дэвид Патрик Келли, Кэтрин Монниг, ЭйДжей Мичалка, 4K, HDR10, DV, Dolby Vision, AMAZON, ");
+        "Ray Donovan: The Movie, 2022, США, драма, Дэвид Холландер, Лив Шрайбер, Кэррис Дорси, Джон Войт, Керри Кондон, Эдди Марсан, Алан Алда, Дэш Майок, Дэвид Патрик Келли, Кэтрин Монниг, ЭйДжей Мичалка, 4K, HDR10, DV, Dolby Vision, AMAZON, ",
+        1,
+        "RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K.menu.mp4",
+        "",
+        "RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K_DV_ENCODER_LOGAN.mp4",
+        "RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K_DV_HDR10_ENCODER_LOGAN.mp4",
+        "",
+        "",
+        ["DV"],
+        "RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K.rus-amazon.vtt
+        RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K.eng-full.vtt
+        RAY_DONOVAN_THE_MOVIE_2022_WEB-DL_4K.eng-sdh.vtt",
+        ["PG-18"],
+        ["4K", "DV", "HDR10", "AAC 5.1"],
+        "");
         $manager->persist($torrent);
 
         $torrent2 = new Torrent("Восстание / Revolt (2017) Blu-ray RMX 1080P",
@@ -41,7 +55,21 @@ class AppFixtures extends Fixture
         <p>Постапокалиптический триллер о последнем оплоте человечества после сокрушительного натиска инопланетян. Американский солдат и молодая француженка объединяются в поисках убежища среди африканской пустоши, обезображенной войной.</p>
         
         <p><b style="color:#9A9170">Продолжительность:</b> 01:27:16</p>',
-        "Revolt, 2017, Великобритания, ЮАР, фантастика, боевик, приключения, Джо Миэйл, Ли Пейс, Беренис Марло, Эми Луиз Уилсон, Алан Сантини, Том Фэйрфут, Кеннет Фок, Эдвин Джей, Карл Роддам, ");
+        "Revolt, 2017, Великобритания, ЮАР, фантастика, боевик, приключения, Джо Миэйл, Ли Пейс, Беренис Марло, Эми Луиз Уилсон, Алан Сантини, Том Фэйрфут, Кеннет Фок, Эдвин Джей, Карл Роддам, ",
+        1,
+        "",
+        "REVOLT_2017_BD_1080P.menu.jpg",
+        "REVOLT_2017_BD_1080_ENCODER_LOGAN.mp4",
+        "REVOLT_2017_BD_1080P_ENCODER_LOGAN.mp4",
+        "",
+        "",
+        ["8 BITS", "10 BITS"],
+        "REVOLT_2017_BD_1080P.rus-forced.vtt
+        REVOLT_2017_BD_1080P.rus-full.vtt
+        REVOLT_2017_BD_1080P.eng-full.vtt",
+        ["PG-18"],
+        ["1080P", "SDR", "AAC 5.1"],
+        "");
         $manager->persist($torrent2);
 
         $manager->flush();
