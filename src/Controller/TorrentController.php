@@ -37,6 +37,16 @@ class TorrentController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $torrent = $form->getData();
+            $uploadedFile = $form['image']->getData();
+            if($uploadedFile) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/uploads';
+                $newFilename = uniqid().'.'.$uploadedFile->guessExtension();
+                $uploadedFile->move(
+                    $destination,
+                    $newFilename
+                );
+                $torrent->setImage($newFilename);
+            }
             $torrentRepository->update($torrent, true);
             $this->addFlash('success', 'Torrent Updated!');
             return $this->redirect("/torrents/" . $torrent->getId());

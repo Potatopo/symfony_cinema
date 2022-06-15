@@ -25,8 +25,33 @@
 
     <hr>
     <h2><a href="/torrents/{{ torrent.id }}">{{ torrent.name }}</a></h2>
+    <p><img src="/uploads/{{ torrent.image }}"></p>
     <p>{{ torrent.keywords }}</p>
     <p>{{ torrent.description | raw }}</p>
+    <p>{{ torrent.extraInfo | raw }}</p>
+    <hr>
+
+    <p>
+        <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
+        <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+        <link href="https://unpkg.com/@silvermine/videojs-quality-selector/dist/css/quality-selector.css" rel="stylesheet">
+		<script src="https://unpkg.com/@silvermine/videojs-quality-selector/dist/js/silvermine-videojs-quality-selector.min.js"></script>
+
+        <video id="player" class="video-js" controls preload="auto" poster="{{ torrent.poster }}" style="width: 100%; height: auto;">
+            <source id="video_hdr" label="HDR" src="{{ torrent.videoHevc }}" type="video/mp4"/>
+            <source id="video_sdr" label="SDR" src="{{ torrent.videoAvc }}" type="video/mp4" selected="true"/>
+        </video>
+
+        <script>
+        player = videojs("player", {
+				preload: "auto",
+				controls: true,
+				liveui: true,
+				aspectRatio: "16:9"});
+                
+                player.controlBar.addChild("QualitySelector");
+        </script>
+    </p>
     <hr>
 
     <a href="/logout">Logout</a>
