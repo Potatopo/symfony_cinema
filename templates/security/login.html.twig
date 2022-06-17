@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Log in to Cinema{% endblock %}
 
 {% block body %}
 <form method="post">
@@ -14,29 +14,69 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    
+    <section class="vh-100 gradient-login">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="card text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-3 pb-5 text-center">
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                        <img src="{{ asset('build/images/logo.svg') }}" alt="Cinema logo" class="mb-5">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
+                        <p class="h4 mt-4 mb-4">Sign in with your credentials</p>
+                        <p class="text-white mb-4">After successful authorization you will get access to the movies</p>
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
+                        <div class="form-outline form-white mb-4 input-group mx-auto" id="emailContainer">
+                            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control form-control-lg pe-5 rounded-all" autocomplete="email" placeholder="Email" aria-describedby="button-email" required autofocus>
+                            <button class="btn btn-outline-secondary" type="button" id="buttonEmail" onclick="email_arrow_clicked()">
+                                <img src="{{ asset('build/images/form-arrow.svg') }}">
+                            </button>
+                        </div>
+
+                        <div class="form-outline form-white mb-4 input-group mx-auto d-none" id="passwordContainer">
+                            <input type="password" name="password" id="inputPassword" class="form-control form-control-lg pe-5 rounded-bottom"  placeholder="Password" autocomplete="current-password" required>
+                            <button class="btn btn-outline-secondary" type="submit" id="buttonPassword">
+                                <img src="{{ asset('build/images/form-arrow.svg') }}">
+                            </button>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                        {#
+                            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                            See https://symfony.com/doc/current/security/remember_me.html
+
+                            <div class="checkbox mb-3">
+                                <label>
+                                    <input type="checkbox" name="_remember_me"> Remember me
+                                </label>
+                            </div>
+                        #}
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="text-center position-absolute bottom-0 start-0 w-100">
+                <p class="small pb-lg-2"><a class="text-white text-decoration-none" href="#!">Forgot your password?</a></p>
+                <p class="small pb-5"><a href="#!" class="text-white text-decoration-none">Not registered yet? Just sign up!</a></p>
+
+                <p class="text-muted mt-5">Copyright © 2022</p>
+            </div>
         </div>
-    #}
+    </section>
 
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
+    <script>
+    function email_arrow_clicked(){
+        document.getElementById("emailContainer").classList.remove("mb-4");
+        document.getElementById("passwordContainer").classList.remove("d-none");
+        document.getElementById("buttonEmail").classList.add("d-none");
+        document.getElementById("inputEmail").classList.remove("rounded-all");
+        document.getElementById("inputEmail").classList.add("rounded-top");
+    }
+    </script>
+
+    
 </form>
 {% endblock %}

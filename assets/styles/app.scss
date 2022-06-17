@@ -1,1 +1,62 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'fonts';
+
+$background-gradient-start: #000000;
+$background-gradient-end: #2972E1;
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.gradient-login {
+    /* fallback for old browsers */
+    background: $background-gradient-end;
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(360deg, $background-gradient-start 0%, $background-gradient-end 100%);
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(360deg, $background-gradient-start 0%, $background-gradient-end 100%);
+
+    .card {
+        background: transparent;
+        border: none;
+    }
+
+    .input-group {
+        max-width: 23vw;
+    }
+
+    button {
+
+        position: absolute !important;
+        z-index: 55 !important;
+        right: 0;
+        min-height: calc(1.5em + 1rem + 8px);
+        padding: 0.5rem 1rem;
+        border: none;
+
+        &:hover {
+            background: none;
+        }
+        &:active {
+            outline: none;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        &:focus {
+            box-shadow: none;
+        }
+
+    }
+
+    .rounded-all {
+        border-radius: 6px 6px 6px 6px !important;
+    }
+    .rounded-top {
+        border-radius: 6px 6px 0px 0px !important;
+    }
+    .rounded-bottom {
+        border-radius: 0px 0px 6px 6px !important;
+    }
+}
